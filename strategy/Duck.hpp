@@ -9,7 +9,10 @@ private:
 	IQuackBehavior* m_quackbehavior;
 
 public:
-	void performFly();
+    Duck();
+    ~Duck();
+    
+    void performFly();
 	void performQuack();
 
 	void setFly(IFlyBehavior* fb);

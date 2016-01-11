@@ -3,13 +3,31 @@
 
 #include <iostream>
 
+Duck::Duck()
+:m_flybehavior(0),m_quackbehavior(0)
+{
+    // construct here :)
+}
+
+Duck::~Duck()
+{
+    if (m_flybehavior) {
+        delete m_flybehavior;
+    }
+    if (m_quackbehavior) {
+        delete m_quackbehavior;
+    }
+}
+
 void Duck::performFly()
 {
-	std::cout << "flying" << std::endl;
+	//std::cout << "flying" << std::endl;
+    m_flybehavior->fly();
 }
 void Duck::performQuack()
 {
-	std::cout << "quacking" << std::endl;
+	//std::cout << "quacking" << std::endl;
+    m_quackbehavior->quack();
 }
 
 void Duck::setFly(IFlyBehavior* fb)
@@ -26,16 +44,17 @@ void Duck::display()
 	// nothing to display by default
 }
 
-void MallardDuck::MallardDuck()
+MallardDuck::MallardDuck()
 {
-	m_flybehavior = new FlyWithWings();
-	m_quackbehavior = new Quack();
+    IFlyBehavior* fb = new FlyWithWings();
+    IQuackBehavior* qb = new Quack();
+    
+    setFly(fb);
+	setQuack(qb);
 }
 
-void MallardDuck::~MallardDuck()
+MallardDuck::~MallardDuck()
 {
-	delete m_flybehavior;
-	delete m_quackbehavior;
 }
 
 void MallardDuck::display()
@@ -45,14 +64,15 @@ void MallardDuck::display()
 
 RedHeadDuck::RedHeadDuck()
 {
-	m_flybehavior = new FlyWithWings();
-	m_quackbehavior = new Quack();
+	IFlyBehavior* fb = new FlyWithWings();
+	IQuackBehavior* qb = new Quack();
+    
+    setFly(fb);
+    setQuack(qb);
 }
 
 RedHeadDuck::~RedHeadDuck()
 {
-	delete m_flybehavior;
-	delete m_quackbehavior;
 }
 
 void RedHeadDuck::display()
@@ -62,14 +82,15 @@ void RedHeadDuck::display()
 
 RubberDuck::RubberDuck()
 {
-	m_flybehavior = new FlyNoWay();
-	m_quackbehavior = new Squeak();
+	IFlyBehavior* fb = new FlyNoWay();
+	IQuackBehavior* qb = new Squeak();
+    
+    setFly(fb);
+    setQuack(qb);
 }
 
 RubberDuck::~RubberDuck()
 {
-	delete m_flybehavior;
-	delete m_quackbehavior;
 }
 
 void RubberDuck::display()
@@ -79,14 +100,15 @@ void RubberDuck::display()
 
 DecoyDuck::DecoyDuck()
 {
-	m_flybehavior = new FlyNoWay();
-	m_quackbehavior = new MuteQuack();
+	IFlyBehavior* fb = new FlyNoWay();
+	IQuackBehavior* qb = new MuteQuack();
+    
+    setFly(fb);
+    setQuack(qb);
 }
 
 DecoyDuck::~DecoyDuck()
 {
-	delete m_flybehavior;
-	delete m_quackbehavior;
 }
 
 void DecoyDuck::display()

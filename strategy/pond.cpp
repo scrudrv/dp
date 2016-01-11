@@ -9,20 +9,20 @@ int main(int argc, char** argv)
 	DecoyDuck dd;
 	RubberDuck rd;
 
-	std::cout << "Mallard duck:" << std::endl 
-		<< md.display() << std::endl
-		<< md.quack() << std::endl
-		<< md.fly() << std::endl << std::endl;
-	std::cout << "ReadHead duck:" << std::endl 
-		<< rhd.display() << std::endl
-		<< rhd.quack() << std::endl
-		<< rhd.fly() << std::endl << std::endl;
-	std::cout << "Decoy duck:" << std::endl 
-		<< dd.display() << std::endl
-		<< dd.quack() << std::endl
-		<< dd.fly() << std::endl << std::endl;
-	std::cout << "Rubber duck:" << std::endl 
-		<< rd.display() << std::endl
-		<< rd.quack() << std::endl
-		<< rd.fly() << std::endl << std::endl;
+    std::cout << "Mallard duck:" << std::endl;
+    md.display();
+    md.performQuack();
+    md.performFly();
+    std::cout << "ReadHead duck:" << std::endl;
+    rhd.display();
+    rhd.performQuack();
+    rhd.performFly();
+    std::cout << "Decoy duck:" << std::endl;
+    dd.display();
+    dd.performQuack();
+    dd.performFly();
+    std::cout << "Rubber duck:" << std::endl;
+    rd.display();
+    rd.performQuack();
+    rd.performFly();
 }
