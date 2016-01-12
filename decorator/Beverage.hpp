@@ -10,7 +10,7 @@ public:
 	Beveredge():m_description("Unknown beveradge"){}
 	virtual ~Beverage(){}
 
-	std::string getDescription() {return m_description;}
+	virtual std::string getDescription() {return m_description;}
 	double virtual cost() = 0;
 };
 
