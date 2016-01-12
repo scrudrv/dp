@@ -4,25 +4,33 @@
 class HouseBlend : public Beverage
 {
 public:
-	double cost();
+	HouseBlend() {m_description = "Houses Blend";}
+
+   double cost(){return 0.89;}
 };
 
 class DarkRoast : public Beverage
 {
 public:
-	double cost();
+	DarkRoast() {m_descriptioin = "Dark Roast";}
+
+   double cost() { return .99;}
 };
 
 class Espresso : public Beverage
 {
 public:
-	double cost();
+	Espresso() {m_description = "Espresso";}
+
+   double cost() { return 1.99; }
 };
 
 class Decaf : public Beverage
 {
 public:
-	double cost();
+	Decaf() { m_description = "Decaf";}
+
+   double cost() { return 1.09; }
 };
 
 #endif
