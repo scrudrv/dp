@@ -15,7 +15,9 @@ int main(int argc, char** argv)
    beverage = new Mocha(beverage);
    beverage = new Whip(beverage);
 
-   beverage->getDescription();
+    std::cout << beverage->getDescription() << " + " << beverage->cost() << std::endl;
 
-   return 0;
+    delete beverage;
+
+    return 0;
 }

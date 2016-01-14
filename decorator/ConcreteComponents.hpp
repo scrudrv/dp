@@ -1,6 +1,8 @@
 #ifndef CONCRETE_COMPONENTS
 #define CONCRETE_COMPONENTS
 
+#include "Beverage.hpp"
+
 class HouseBlend : public Beverage
 {
 public:
@@ -12,7 +14,7 @@ public:
 class DarkRoast : public Beverage
 {
 public:
-	DarkRoast() {m_descriptioin = "Dark Roast";}
+	DarkRoast() {m_description = "Dark Roast";}
 
    double cost() { return .99;}
 };

@@ -1,5 +1,7 @@
-#ifndef BEVERAGE_H
-#define BEVERAGE_H
+#ifndef CONDIMENT_DECORATOR_H
+#define CONDIMENT_DECORATOR_H
+
+#include "Beverage.hpp"
 
 class Beverage;
 
@@ -7,17 +9,20 @@ class ICondimentDecorator : public Beverage
 {
 public:
    virtual std::string getDescription() = 0;
+    
+    virtual ~ICondimentDecorator(){}
 };
 
 class Mocha : public ICondimentDecorator
 {
 private:
-   Beverage* m_beverage:
+    Beverage* m_beverage;
 public:
    Mocha(Beverage* beverage):m_beverage(beverage){}
+    ~Mocha();
    
    std::string getDescription(){return m_beverage->getDescription() + ", Mocha";}
-   double cost(){return .20 + m_beverage.cost();}
+   double cost(){return .20 + m_beverage->cost();}
 };
 
 class Whip : public ICondimentDecorator
@@ -27,12 +32,13 @@ private:
 
 public:
    Whip(Beverage* beverage):m_beverage(beverage){}
+    ~Whip();
 
    std::string getDescription(){return m_beverage->getDescription() + ", Whip";}
    double cost(){return .15 + m_beverage->cost();}   
 };
 
-class Soy : public ICondimentConstructor
+class Soy : public ICondimentDecorator
 {
 private:
    Beverage* m_beverage;
